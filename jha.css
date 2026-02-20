@@ -1,0 +1,129 @@
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body { background: #111; color: white; }
+
+header {
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+     align-items: center;
+    padding: 15px 60px;
+     background: black;
+    position: sticky;
+     top: 0; 
+     z-index: 1000;
+}
+
+nav ul { display: flex;
+     list-style: none; }
+nav ul li { margin-left: 20px; }
+nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+nav ul li a:hover { color: #ff4d00; }
+
+/* Nav links ke liye styling */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative; /* Ye line ki position set karne ke liye zaroori hai */
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+/* Underline banana (shuruat mein width 0 hogi) */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0; /* Shuru mein line nahi dikhegi */
+    height: 3px; /* Line ki motai */
+    background: #ff4d00; /* Aapka theme color (Orange) */
+    transition: width 0.4s ease-in-out; /* Smoothly badhne ke liye animation */
+    border-radius: 2px;
+}
+
+/* Hover karne par line poori ho jaye */
+nav ul li a:hover::after {
+    width: 100%; /* Mouse le jane par line 100% ho jayegi */
+}
+
+/* Hover par text ka color bhi thoda change ho (Optional) */
+nav ul li a:hover {
+    color: #ff4d00;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+    url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1470') center/cover;
+    display: flex; justify-content: center; align-items: center; text-align: center;
+}
+.hero h1 { font-size: 60px; letter-spacing: 2px; }
+
+/* Common Section Styling */
+.section { padding: 80px 20px; text-align: center; background-size: cover; background-position: center; background-attachment: fixed; }
+
+/* Background Images for Sections */
+.services { background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200'); }
+.trainers { background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200'); }
+.pricing { background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1200'); }
+.contact { background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1200'); }
+
+/* Cards */
+.cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+.card { background: rgba(255, 255, 255, 0.1); padding: 40px; width: 280px; border-radius: 15px; border: 1px solid #ff4d00; transition: 0.4s; backdrop-filter: blur(5px); }
+.card:hover { background: #ff4d00; transform: translateY(-10px); }
+
+/* Marquee Gallery Effect */
+.marquee { overflow: hidden; white-space: nowrap; padding: 20px 0; background: #000; }
+.marquee-content { display: inline-block; animation: scroll 20s linear infinite; }
+.marquee-content img { width: 300px; height: 200px; object-fit: cover; margin: 0 10px; border-radius: 10px; border: 2px solid #ff4d00; }
+
+#gallery {
+    padding: 80px 0; /* Upar neeche space dene ke liye */
+    text-align: center; /* Text ko center karne ke liye */
+    background: #111; /* Background color set karein */
+}
+
+#gallery h2 {
+    font-size: 40px;
+    color: #ff4d00;
+    margin-bottom: 40px; /* Text aur marquee ke beech gap dene ke liye */
+    display: block; /* Ensure karega ki ye poori line le */
+    width: 100%;
+}
+
+/* Marquee ko thoda saaf dikhane ke liye */
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    padding: 20px 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.btn { padding: 12px 30px; background: #ff4d00; color: white; text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s; }
+.btn:hover { background: white; color: #ff4d00; }
+
+footer { padding: 20px; background: #000; border-top: 2px solid #ff4d00; text-align: center; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    header { flex-direction: column; padding: 20px; }
+    nav ul { margin-top: 15px; }
+    .hero h1 { font-size: 35px; }
+}
